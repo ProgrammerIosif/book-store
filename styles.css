@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-auto-rows: 300px;
+    gap: 50px;
+    margin: 50px 8vw;
+}
+
+#container > *{
+    border: 1px solid blue;
+    border-radius: 20px;
+}
