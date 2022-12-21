@@ -24,6 +24,7 @@ function displayBook(book) {
 
     const title = document.createElement('h2');
     title.textContent = book.title;
+    title.classList.add('bookTitle');
     card.appendChild(title);
 
     const author = document.createElement('h2');
@@ -35,9 +36,17 @@ function displayBook(book) {
     card.appendChild(pages);
 
     const status = document.createElement('button');
-    status.classList.add('status');
-    status.textContent = book.read === true ? 'STATUS: READ' : 'STATUS: NOT READ';
+    status.id = book.title;
+    status.textContent = book.read === true ? '\u2713 READ' : 'NOT READ';
     card.appendChild(status);
+    status.addEventListener('click', () => {
+            console.log('fs');
+            myLibrary.forEach(book => {
+                    if (book.title === status.id) 
+                         book.read = !(book.read);
+                });
+            displayBooks();
+        })
 
     const remove = document.createElement('button');
     remove.classList.add('removeBook');
@@ -53,18 +62,18 @@ function displayBook(book) {
 }
 
 let myLibrary = [
-    new Book('Afds of Sofsd','Foijew Jioqwe','390',true),
-    new Book('Afaier Afjaiowe', 'Afdsaf De Fewqioj', '800', false),
-    new Book('SDFHIOS HFISOH','Apgre Sfsdi', '193', true),
-    new Book('Afds of Sofsd','Foijew Jioqwe','390',true),
-    new Book('Afaier Afjaiowe', 'Afdsaf De Fewqioj', '800', false),
-    new Book('SDFHIOS HFISOH','Apgre Sfsdi', '193', true),
-    new Book('Afds of Sofsd','Foijew Jioqwe','390',true),
-    new Book('Afaier Afjaiowe', 'Afdsaf De Fewqioj', '800', false),
-    new Book('SDFHIOS HFISOH','Apgre Sfsdi', '193', true),
-    new Book('Afds of Sofsd','Foijew Jioqwe','390',true),
-    new Book('Afaier Afjaiowe', 'Afdsaf De Fewqioj', '800', false),
-    new Book('SDFHIOS HFISOH','Apgre Sfsdi', '193', true)
+    new Book('The 7 Habits of Highly Effective People', 'Stephen R. Covey', 336, true),
+    new Book('How to Win Friends and Influence People', 'Dale Carnegie', 288, false),
+    new Book('The Power of Now', 'Eckhart Tolle', 258, true),
+    new Book('Man’s Search for Meaning', 'Viktor Frankl', 184, false),
+    new Book('Awaken the Giant Within', 'Tony Robbins', 432, true),
+    new Book('The Subtle Art of Not Giving a F*ck', 'Mark Manson', 224, false),
+    new Book('Mindset: The New Psychology of Success', 'Carol S. Dweck', 288, true),
+    new Book('The 4-Hour Work Week', 'Timothy Ferriss', 368, false),
+    new Book('The 48 Laws of Power', 'Robert Greene', 464, false),
+    new Book('12 Rules for Life: An Antidote to Chaos', 'Jordan Peterson', 432, true),
+    new Book('Beyond Good and Evil', 'Friedrich Nietzsche', 200, false),
+    new Book('The Divine Comedy', 'Dante Alighieri', 928, true)
 ];
 
 const booksList = document.getElementById('container');
