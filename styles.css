@@ -55,6 +55,20 @@ h2{
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2) ;
 }
 
+@media screen and (max-width: 500px){
+    #container{
+        grid-template-columns: 84vw;
+    }
+    #container > div,
+    #container > *{
+        gap: 4px;
+        padding: 10px 20px;
+    }
+    h2{
+        margin: 6px;
+    }
+}
+
 #container > div{
     background-color: var(--card-color);
     gap: 10px;
