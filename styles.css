@@ -8,7 +8,9 @@
 }
 
 body{
-    background-color: var(--background-color);
+    background-image: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGlicmFyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
@@ -52,21 +54,7 @@ h2{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2) ;
-}
-
-@media screen and (max-width: 500px){
-    #container{
-        grid-template-columns: 84vw;
-    }
-    #container > div,
-    #container > *{
-        gap: 4px;
-        padding: 10px 20px;
-    }
-    h2{
-        margin: 6px;
-    }
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.6) ;
 }
 
 #container > div{
@@ -97,6 +85,7 @@ button{
 }
 
 form{
+    background-color: var(--background-color);
     font-size: 1.2rem;
     gap: 4px;
 }
@@ -118,4 +107,21 @@ input[type=text],input[type=number], select, textarea {
     font-size: 1.2rem;
     background-color: var(--button-color);
     color: white;
+}
+
+@media screen and (max-width: 500px){
+    body{
+        background-color: var(--background-color);
+    }
+    #container{
+        grid-template-columns: 84vw;
+    }
+    #container > div,
+    #container > *{
+        gap: 4px;
+        padding: 10px 20px;
+    }
+    h2{
+        margin: 6px;
+    }
 }
