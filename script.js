@@ -1,14 +1,10 @@
-
-function Book(title, author, pages, read) {
+const Book = (title, author, pages, read) => {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = () => {
-        return `{title} by ${author}, ${pages}, ${read === true ? 'read' : 'not read yet'}`;
-    }
-}
-
+    return {title, author, pages, read};
+};
 
 function displayBooks() {
     booksList.innerHTML = '';
@@ -62,18 +58,18 @@ function displayBook(book) {
 }
 
 let myLibrary = [
-    new Book('The 7 Habits of Highly Effective People', 'Stephen R. Covey', 336, true),
-    new Book('How to Win Friends and Influence People', 'Dale Carnegie', 288, false),
-    new Book('The Power of Now', 'Eckhart Tolle', 258, true),
-    new Book('Man’s Search for Meaning', 'Viktor Frankl', 184, false),
-    new Book('Awaken the Giant Within', 'Tony Robbins', 432, true),
-    new Book('The Subtle Art of Not Giving a F*ck', 'Mark Manson', 224, false),
-    new Book('Mindset: The New Psychology of Success', 'Carol S. Dweck', 288, true),
-    new Book('The 4-Hour Work Week', 'Timothy Ferriss', 368, false),
-    new Book('The 48 Laws of Power', 'Robert Greene', 464, false),
-    new Book('12 Rules for Life: An Antidote to Chaos', 'Jordan Peterson', 432, true),
-    new Book('Beyond Good and Evil', 'Friedrich Nietzsche', 200, false),
-    new Book('The Divine Comedy', 'Dante Alighieri', 928, true)
+    Book('The 7 Habits of Highly Effective People', 'Stephen R. Covey', 336, true),
+    Book('How to Win Friends and Influence People', 'Dale Carnegie', 288, false),
+    Book('The Power of Now', 'Eckhart Tolle', 258, true),
+    Book('Man’s Search for Meaning', 'Viktor Frankl', 184, false),
+    Book('Awaken the Giant Within', 'Tony Robbins', 432, true),
+    Book('The Subtle Art of Not Giving a F*ck', 'Mark Manson', 224, false),
+    Book('Mindset: The New Psychology of Success', 'Carol S. Dweck', 288, true),
+    Book('The 4-Hour Work Week', 'Timothy Ferriss', 368, false),
+    Book('The 48 Laws of Power', 'Robert Greene', 464, false),
+    Book('12 Rules for Life: An Antidote to Chaos', 'Jordan Peterson', 432, true),
+    Book('Beyond Good and Evil', 'Friedrich Nietzsche', 200, false),
+    Book('The Divine Comedy', 'Dante Alighieri', 928, true)
 ];
 
 const booksList = document.getElementById('container');
@@ -97,10 +93,10 @@ addBookButton.addEventListener('click', () => {
 
 form.addEventListener('submit', (e) => {
         e.preventDefault();
-        let newBook = new Book(form.elements[0].value,
-                               form.elements[1].value,
-                               form.elements[2].value,
-                               form.elements[3].checked == true ? true : false);
+        let newBook = Book(form.elements[0].value,
+                           form.elements[1].value,
+                           form.elements[2].value,
+                           form.elements[3].checked == true ? true : false);
         myLibrary.push(newBook);
         console.log('fds')
         form.reset();
